@@ -14,7 +14,7 @@ We make it concurrent by running with different starting parameters `x0` and `c`
 subroutines find factor, we stop all the other. This simple **concurrent** modification of algorithm can
 give us performance gain.
 
-## How to use
+## Usage
 
 To run sequential version simply call `algo.Factorize(n)`. If you want to use concurrent implementation,
 you'll need to specify additional parameter `j` which is concurrency limit. Eg. `algo.FactorizeParallel(n, 4)`.
