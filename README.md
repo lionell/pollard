@@ -68,3 +68,7 @@ To run benchmarks just do:
 $ cd algo
 $ go test -bench . -benchtime 1m -timeout 1h
 ```
+
+## License
+
+MIT
