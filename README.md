@@ -31,16 +31,23 @@ Here are a couple of my **empirical** observations:
 
 Here are benchmark results from running program on my laptop(Thinkpad X1 Carbon 4Gen).
 
-BenchmarkFactorizeParallel6\_1-4      |      10000    |      13240036 ns/op
-BenchmarkFactorizeParallel6\_2-4      |      10000    |      13176139 ns/op
-BenchmarkFactorizeParallel6\_3-4      |      10000    |      13681833 ns/op
-BenchmarkFactorizeParallel6_4-4      |       5000    |      16099252 ns/op
-BenchmarkFactorizeParallel7_1-4      |       2000    |      54945878 ns/op
-BenchmarkFactorizeParallel7_2-4      |       2000    |      57374638 ns/op
-BenchmarkFactorizeParallel7_3-4      |       2000    |      53736698 ns/op
-BenchmarkFactorizeParallel7_4-4      |       2000    |      63402946 ns/op
-BenchmarkFactorizeParallel8_1-4      |        500    |     201967658 ns/op
-BenchmarkFactorizeParallel8_2-4      |        500    |     205176048 ns/op
-BenchmarkFactorizeParallel8_3-4      |        500    |     194191468 ns/op
-BenchmarkFactorizeParallel8_4-4      |        300    |     243370318 ns/op
+| Name                                 |          Runs |                Time |
+|:-------------------------------------|--------------:|--------------------:|
+| BenchmarkFactorizeParallel6\_1-4     |      10000    |      13240036 ns/op |
+| BenchmarkFactorizeParallel6\_2-4     |      10000    |      13176139 ns/op |
+| BenchmarkFactorizeParallel6\_3-4     |      10000    |      13681833 ns/op |
+| BenchmarkFactorizeParallel6\_4-4     |       5000    |      16099252 ns/op |
+| BenchmarkFactorizeParallel7\_1-4     |       2000    |      54945878 ns/op |
+| BenchmarkFactorizeParallel7\_2-4     |       2000    |      57374638 ns/op |
+| BenchmarkFactorizeParallel7\_3-4     |       2000    |      53736698 ns/op |
+| BenchmarkFactorizeParallel7\_4-4     |       2000    |      63402946 ns/op |
+| BenchmarkFactorizeParallel8\_1-4     |        500    |     201967658 ns/op |
+| BenchmarkFactorizeParallel8\_2-4     |        500    |     205176048 ns/op |
+| BenchmarkFactorizeParallel8\_3-4     |        500    |     194191468 ns/op |
+| BenchmarkFactorizeParallel8\_4-4     |        300    |     243370318 ns/op |
+| BenchmarkFactorizeParallel9\_1-4     |         50    |    2567833446 ns/op |
+| BenchmarkFactorizeParallel9\_2-4     |         50    |    2264897200 ns/op |
+| BenchmarkFactorizeParallel9\_3-4     |         30    |    2317177665 ns/op |
+| BenchmarkFactorizeParallel9\_4-4     |         50    |    2005279526 ns/op |
+
 
