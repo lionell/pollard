@@ -1,6 +1,7 @@
 package algo
 
 import (
+	"log"
 	"math/big"
 )
 
@@ -13,15 +14,11 @@ func FactorizeParallel(n *big.Int, j int) *big.Int {
 		res    = make(chan *big.Int, j)
 		stop   = make(chan struct{}, j)
 		factor = new(big.Int)
-		p0     = new(big.Int)
-		c      = new(big.Int)
 	)
 
 	// start j goroutines
 	for i := 0; i < j; i++ {
-		globalRand.nextInt(p0, n)
-		globalRand.nextInt(c, n)
-		go parallelRho(n, p0, c, res, stop)
+		startRho(n, res, stop)
 	}
 
 	for {
@@ -29,10 +26,7 @@ func FactorizeParallel(n *big.Int, j int) *big.Int {
 		if factor.Cmp(zero) != 0 {
 			break
 		}
-
-		globalRand.nextInt(p0, n)
-		globalRand.nextInt(c, n)
-		go parallelRho(n, p0, c, res, stop)
+		startRho(n, res, stop)
 	}
 
 	// signalize other goroutines
@@ -47,15 +41,28 @@ func FactorizeParallel(n *big.Int, j int) *big.Int {
 	return factor
 }
 
-// parallelRho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
+func startRho(n *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
+	var (
+		p0 = new(big.Int)
+		c  = new(big.Int)
+	)
+	globalRand.nextInt(p0, n)
+	globalRand.nextInt(c, n)
+
+	log.Printf("Running routine(n = %v, p0 = %v, c = %v).", n, p0, c)
+	go ParallelRho(n, p0, c, res, stop)
+}
+
+// ParallelRho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
 // Returns "factor" found by Floyd's cycle detection algorithm.
 // It can be 0(try again), or actual factor.
-func parallelRho(n, p0, c *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
+func ParallelRho(n, p0, c *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
 	// set initial values
 	var (
 		x = new(big.Int).Set(p0)
 		y = new(big.Int).Set(p0)
 		g = big.NewInt(1)
+		i = 0
 	)
 
 	for g.Cmp(one) == 0 {
@@ -74,8 +81,11 @@ func parallelRho(n, p0, c *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
 
 			// g = gcd(abs(x - y), n)
 			g.GCD(nil, nil, g.Abs(g.Sub(x, y)), n)
+
+			i++
 		}
 	}
 
+	log.Printf("%v iterations. (%v, %v)", i, p0, c)
 	res <- g
 }

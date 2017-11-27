@@ -3,8 +3,6 @@
 from fractions import gcd
 import random
 
-random.seed(17)
-
 def pollard_rho(n):
     while True:
         c = random.randint(2, n-1)

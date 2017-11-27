@@ -1,8 +1,6 @@
 package algo
 
-import (
-	"math/big"
-)
+import "math/big"
 
 // Factorize continuously runs Pollard's rho algorithm, until factor is found.
 func Factorize(n *big.Int) *big.Int {
@@ -19,16 +17,16 @@ func Factorize(n *big.Int) *big.Int {
 		globalRand.nextInt(c, n)
 
 		// try find factor
-		f = rho(n, p0, c)
+		f = Rho(n, p0, c)
 	}
 
 	return f
 }
 
-// rho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
+// Rho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
 // Returns "factor" found by Floyd's cycle detection algorithm.
 // It can be 0(try again), or actual factor.
-func rho(n, p0, c *big.Int) *big.Int {
+func Rho(n, p0, c *big.Int) *big.Int {
 	// set initial values
 	var (
 		x = new(big.Int).Set(p0)

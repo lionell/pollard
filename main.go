@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"github.com/lionell/crypto/algo"
+	"github.com/lionell/pollard/algo"
 	"math/big"
 	"os"
 )
