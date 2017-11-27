@@ -33,30 +33,30 @@ Here are benchmark results from running program on my laptop(Intel Core i7-6600U
 
 | Name              |       Runs |                Time |
 |:------------------|-----------:|--------------------:|
-| Parallel6\_1     |      10000 |      13240036 ns/op |
-| Parallel6\_2     |      10000 |      13176139 ns/op |
-| Parallel6\_3     |      10000 |      13681833 ns/op |
-| Parallel6\_4     |       5000 |      16099252 ns/op |
-| Parallel7\_1     |       2000 |      54945878 ns/op |
-| Parallel7\_2     |       2000 |      57374638 ns/op |
-| Parallel7\_3     |       2000 |      53736698 ns/op |
-| Parallel7\_4     |       2000 |      63402946 ns/op |
-| Parallel8\_1     |        500 |     201967658 ns/op |
-| Parallel8\_2     |        500 |     205176048 ns/op |
-| Parallel8\_3     |        500 |     194191468 ns/op |
-| Parallel8\_4     |        300 |     243370318 ns/op |
-| Parallel9\_1     |         50 |    2567833446 ns/op |
-| Parallel9\_2     |         50 |    2264897200 ns/op |
-| Parallel9\_3     |         30 |    2317177665 ns/op |
-| Parallel9\_4     |         50 |    2005279526 ns/op |
+| Parallel\_6\_1     |      10000 |      13240036 ns/op |
+| Parallel\_6\_2     |      10000 |      13176139 ns/op |
+| Parallel\_6\_3     |      10000 |      13681833 ns/op |
+| Parallel\_6\_4     |       5000 |      16099252 ns/op |
+| Parallel\_7\_1     |       2000 |      54945878 ns/op |
+| Parallel\_7\_2     |       2000 |      57374638 ns/op |
+| Parallel\_7\_3     |       2000 |      53736698 ns/op |
+| Parallel\_7\_4     |       2000 |      63402946 ns/op |
+| Parallel\_8\_1     |        500 |     201967658 ns/op |
+| Parallel\_8\_2     |        500 |     205176048 ns/op |
+| Parallel\_8\_3     |        500 |     194191468 ns/op |
+| Parallel\_8\_4     |        300 |     243370318 ns/op |
+| Parallel\_9\_1     |         50 |    2567833446 ns/op |
+| Parallel\_9\_2     |         50 |    2264897200 ns/op |
+| Parallel\_9\_3     |         30 |    2317177665 ns/op |
+| Parallel\_9\_4     |         50 |    2005279526 ns/op |
 
 Where each benchmark is based on `prod prime[i] for i from left to right`.
 
 | Name           |       Left |      Right |
 |:---------------|-----------:|-----------:|
-| Parallel6     |    1000000 |    1000005 |
-| Parallel7     |   10000000 |   10000005 |
-| Parallel8     |  100000000 |  100000005 |
-| Parallel9     | 1000000001 | 1000000005 |
+| Parallel\_6     |    1000000 |    1000005 |
+| Parallel\_7     |   10000000 |   10000005 |
+| Parallel\_8     |  100000000 |  100000005 |
+| Parallel\_9     | 1000000001 | 1000000005 |
 
 And last part of benchmark name states for concurrency limit set for the test.
