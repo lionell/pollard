@@ -60,3 +60,11 @@ Where each benchmark is based on `prod prime[i] for i from left to right`.
 | Parallel\_9     | 1000000001 | 1000000005 |
 
 And last part of benchmark name states for concurrency limit set for the test.
+
+## How to reproduce
+
+To run benchmarks just do:
+```(shell)
+$ cd algo
+$ go test -bench . -benchtime 1m -timeout 1h
+```
