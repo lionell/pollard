@@ -14,6 +14,17 @@ We make it concurrent by running with different starting parameters `x0` and `c`
 subroutines find factor, we stop all the other. This simple **concurrent** modification of algorithm can
 give us performance gain.
 
+## How to use
+
+To run sequential version simply call `algo.Factorize(n)`. If you want to use concurrent implementation,
+you'll need to specify additional parameter `j` which is concurrency limit. Eg. `algo.FactorizeParallel(n, 4)`.
+
+To run benchmarks just do:
+```(shell)
+$ cd algo
+$ go test -bench . -benchtime 1m -timeout 1h
+```
+
 ## Results
 
 As you know, Rho algorithm belongs to randomized, so it's hard to get accurate performance stats.
@@ -60,14 +71,6 @@ Where each benchmark is based on `prod prime[i] for i from left to right`.
 | Parallel\_9     | 1000000001 | 1000000005 |
 
 And last part of benchmark name states for concurrency limit set for the test.
-
-## How to reproduce
-
-To run benchmarks just do:
-```(shell)
-$ cd algo
-$ go test -bench . -benchtime 1m -timeout 1h
-```
 
 ## License
 
