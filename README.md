@@ -29,7 +29,7 @@ Here are a couple of my **empirical** observations:
 * For numbers with only a few factors, concurrent algorithms can help.
 
 
-Here are benchmark results from running program on my laptop(Thinkpad X1 Carbon 4Gen).
+Here are benchmark results from running program on my laptop(Intel Core i7-6600U @ 4x 3.4GHz).
 
 | Name              |       Runs |                Time |
 |:------------------|-----------:|--------------------:|
