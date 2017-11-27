@@ -1,6 +1,6 @@
 # Concurrent Rho algorithm
 
-This is concurrent implementation of Pollard's Rho algorithm in Go. It also contains
+Implementation of Pollard's Rho algorithm in Go. It also contains
 sequential implementation in Python(see `main.py`).
 
 ## How it works
