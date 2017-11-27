@@ -1,7 +1,7 @@
 # Concurrent Rho algorithm
 
 This is concurrent implementation of Pollard's Rho algorithm in Go. It also contains
-sequential implementation in Go and Python(see main.py).
+sequential implementation in Python(see `main.py`).
 
 ## How it works
 
@@ -18,13 +18,29 @@ give us performance gain.
 
 As you know, Rho algorithm belongs to randomized, so it's hard to get accurate performance stats.
 
-Here is a couple of **empirical** results I've got from testing this algorithm:
+Here are a couple of my **empirical** observations:
+
 * There is number 4 that algorithm is failing to factorize.
 * For small numbers(eg. 8, 16, 25) concurrent solution can find factor faster.
-  These numbers have high probability of cycling in Rho procedure. Only some specific pairs (p0, c)
+  These numbers have high probability of cycling in Rho procedure. Only some specific pairs `(x0, c)`
   lead to the result.
 * For numbers(even very big) that have many small factors, algorithm will find answer very quick.
   Parallel execution here **will not help**.
 * For numbers with only a few factors, concurrent algorithms can help.
-  Here are benchmark results from running program on my laptop(Thinkpad X1 Carbon 4Gen).
+
+
+Here are benchmark results from running program on my laptop(Thinkpad X1 Carbon 4Gen).
+
+BenchmarkFactorizeParallel6\_1-4      |      10000    |      13240036 ns/op
+BenchmarkFactorizeParallel6\_2-4      |      10000    |      13176139 ns/op
+BenchmarkFactorizeParallel6\_3-4      |      10000    |      13681833 ns/op
+BenchmarkFactorizeParallel6_4-4      |       5000    |      16099252 ns/op
+BenchmarkFactorizeParallel7_1-4      |       2000    |      54945878 ns/op
+BenchmarkFactorizeParallel7_2-4      |       2000    |      57374638 ns/op
+BenchmarkFactorizeParallel7_3-4      |       2000    |      53736698 ns/op
+BenchmarkFactorizeParallel7_4-4      |       2000    |      63402946 ns/op
+BenchmarkFactorizeParallel8_1-4      |        500    |     201967658 ns/op
+BenchmarkFactorizeParallel8_2-4      |        500    |     205176048 ns/op
+BenchmarkFactorizeParallel8_3-4      |        500    |     194191468 ns/op
+BenchmarkFactorizeParallel8_4-4      |        300    |     243370318 ns/op
 
