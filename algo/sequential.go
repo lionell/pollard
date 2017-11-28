@@ -17,16 +17,16 @@ func Factorize(n *big.Int) *big.Int {
 		globalRand.nextInt(c, n)
 
 		// try find factor
-		f = Rho(n, p0, c)
+		f = rho(n, p0, c)
 	}
 
 	return f
 }
 
-// Rho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
+// rho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
 // Returns "factor" found by Floyd's cycle detection algorithm.
 // It can be 0(try again), or actual factor.
-func Rho(n, p0, c *big.Int) *big.Int {
+func rho(n, p0, c *big.Int) *big.Int {
 	// set initial values
 	var (
 		x = new(big.Int).Set(p0)

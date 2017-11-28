@@ -50,13 +50,13 @@ func startRho(n *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
 	globalRand.nextInt(c, n)
 
 	log.Printf("Running routine(n = %v, p0 = %v, c = %v).", n, p0, c)
-	go ParallelRho(n, p0, c, res, stop)
+	go parallelRho(n, p0, c, res, stop)
 }
 
-// ParallelRho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
+// parallelRho is Pollard's rho algorithm, with f(x) = x^2 + c, and x0 = p0.
 // Returns "factor" found by Floyd's cycle detection algorithm.
 // It can be 0(try again), or actual factor.
-func ParallelRho(n, p0, c *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
+func parallelRho(n, p0, c *big.Int, res chan<- *big.Int, stop <-chan struct{}) {
 	// set initial values
 	var (
 		x = new(big.Int).Set(p0)
