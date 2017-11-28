@@ -62,13 +62,13 @@ Here are benchmark results from running program on my laptop(Intel Core i7-6600U
 | Parallel\_9\_3     |         30 |    2317.177 |
 | Parallel\_9\_4     |         50 |    2005.279 |
 
-Where each benchmark is based on `prod prime[i] for i from left to right`.
+Where each benchmark is based on `prod prime[i] for i from Left to Right`.
 
 | Name            |       Left |      Right |
 |:----------------|-----------:|-----------:|
-| Parallel\_6     |    1000000 |    1000005 |
-| Parallel\_7     |   10000000 |   10000005 |
-| Parallel\_8     |  100000000 |  100000005 |
-| Parallel\_9     | 1000000001 | 1000000005 |
+| Parallel\_6     |       10^6 |   10^6 + 5 |
+| Parallel\_7     |       10^7 |   10^7 + 5 |
+| Parallel\_8     |       10^8 |   10^8 + 5 |
+| Parallel\_9     |   10^9 + 1 |   10^9 + 5 |
 
-And last part of benchmark name states for concurrency limit set for the test.
+And last part of benchmark name states for **concurrency limit** used for the test.
