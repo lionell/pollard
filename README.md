@@ -43,36 +43,32 @@ Here are a couple of my **empirical** observations:
 
 Here are benchmark results from running program on my laptop(Intel Core i7-6600U @ 4x 3.4GHz).
 
-| Name              |       Runs |                Time |
-|:------------------|-----------:|--------------------:|
-| Parallel\_6\_1     |      10000 |      13240036 ns/op |
-| Parallel\_6\_2     |      10000 |      13176139 ns/op |
-| Parallel\_6\_3     |      10000 |      13681833 ns/op |
-| Parallel\_6\_4     |       5000 |      16099252 ns/op |
-| Parallel\_7\_1     |       2000 |      54945878 ns/op |
-| Parallel\_7\_2     |       2000 |      57374638 ns/op |
-| Parallel\_7\_3     |       2000 |      53736698 ns/op |
-| Parallel\_7\_4     |       2000 |      63402946 ns/op |
-| Parallel\_8\_1     |        500 |     201967658 ns/op |
-| Parallel\_8\_2     |        500 |     205176048 ns/op |
-| Parallel\_8\_3     |        500 |     194191468 ns/op |
-| Parallel\_8\_4     |        300 |     243370318 ns/op |
-| Parallel\_9\_1     |         50 |    2567833446 ns/op |
-| Parallel\_9\_2     |         50 |    2264897200 ns/op |
-| Parallel\_9\_3     |         30 |    2317177665 ns/op |
-| Parallel\_9\_4     |         50 |    2005279526 ns/op |
+| Name               |       Runs | Time(ms/op) |
+|:-------------------|-----------:|------------:|
+| Parallel\_6\_1     |      10000 |      13.240 |
+| Parallel\_6\_2     |      10000 |      13.176 |
+| Parallel\_6\_3     |      10000 |      13.681 |
+| Parallel\_6\_4     |       5000 |      16.099 |
+| Parallel\_7\_1     |       2000 |      54.945 |
+| Parallel\_7\_2     |       2000 |      57.374 |
+| Parallel\_7\_3     |       2000 |      53.736 |
+| Parallel\_7\_4     |       2000 |      63.402 |
+| Parallel\_8\_1     |        500 |     201.967 |
+| Parallel\_8\_2     |        500 |     205.176 |
+| Parallel\_8\_3     |        500 |     194.191 |
+| Parallel\_8\_4     |        300 |     243.370 |
+| Parallel\_9\_1     |         50 |    2567.833 |
+| Parallel\_9\_2     |         50 |    2264.897 |
+| Parallel\_9\_3     |         30 |    2317.177 |
+| Parallel\_9\_4     |         50 |    2005.279 |
 
 Where each benchmark is based on `prod prime[i] for i from left to right`.
 
-| Name           |       Left |      Right |
-|:---------------|-----------:|-----------:|
+| Name            |       Left |      Right |
+|:----------------|-----------:|-----------:|
 | Parallel\_6     |    1000000 |    1000005 |
 | Parallel\_7     |   10000000 |   10000005 |
 | Parallel\_8     |  100000000 |  100000005 |
 | Parallel\_9     | 1000000001 | 1000000005 |
 
 And last part of benchmark name states for concurrency limit set for the test.
-
-## License
-
-MIT
