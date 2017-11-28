@@ -21,8 +21,7 @@ you'll need to specify additional parameter `j` which is concurrency limit. Eg. 
 
 To run benchmarks just do:
 ```(shell)
-$ cd algo
-$ go test -bench . -benchtime 1m -timeout 1h
+$ go test -bench . -benchtime 1m -timeout 1h ./...
 ```
 
 ## Results
