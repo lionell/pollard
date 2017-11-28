@@ -1,5 +1,7 @@
 # Concurrent Rho algorithm
 
+[![Build Status](https://travis-ci.org/lionell/pollard.svg?branch=master)](https://travis-ci.org/lionell/pollard)
+
 Implementation of Pollard's Rho algorithm in Go. It also contains
 sequential implementation in Python(see `main.py`).
 
