@@ -3,14 +3,14 @@
 [![Build Status](https://travis-ci.org/lionell/pollard.svg?branch=master)](https://travis-ci.org/lionell/pollard)
 
 Implementation of Pollard's Rho algorithm in Go. It also contains
-sequential implementation in Python(see `main.py`).
+sequential implementation in Python(see `rho.py`).
 
 ## How it works
 
 Rho algorithm is generating the sequence of numbers `x0, x1 = f(x0), ..., x_i = f(x_{i-1})`,
 where `f(x) = x*x + c`.
 We are applying Floyd's cycle detection algorithm, to find point in the cycle and this can give 
-us factor. For more details see [wiki](https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm).
+us factor. For more details see [wiki][pollard-rho-wiki].
 
 We make it concurrent by running with different starting parameters `x0` and `c`. As soon as one of the
 subroutines find factor, we stop all the other. This simple **concurrent** modification of algorithm can
@@ -72,3 +72,53 @@ Where each benchmark is based on `prod prime[i] for i from Left to Right`.
 | Parallel\_9     |   10^9 + 1 |   10^9 + 5 |
 
 And last part of benchmark name states for **concurrency limit** used for the test.
+
+## Bonus
+
+There is also an implementation of the Pollard's Rho algorithm as a smart-contract for [Ethereum][ethereum].
+You can find it in `rho.sol`. It's able to find a factor of 256bit integer running on the Ethereum Virtual Machine(EVM).
+Here is how you can test it using [Truffle Framework][truffle].
+
+### Install
+
+```bash
+# npm install -g truffle
+```
+
+### Run
+
+Navigate to `ethereum` directory and compile contracts
+
+```bash
+$ truffle compile
+```
+
+Now we can run development blockchain built into Truffle
+
+```bash
+$ truffle develop
+```
+
+This should give you prompt like `truffle(develop)>`.
+
+Now we need to run migrations to publish our contract
+
+```
+truffle(develop)> migrate
+```
+
+After this we can use our smart contract like this
+
+```
+truffle(develop)> var rho = Rho.at(Rho.address)
+truffle(develop)> var x0 = 2, p = 1, n = 35
+truffle(develop)> rho.run(x0, p, n)
+BigNumber { s: 1, e: 0, c: [ 7 ] }
+```
+
+Result is a `BigNumber` representation of our factor. In our case factor 7 is in field called `c`.
+
+[pollard-rho-wiki]: https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
+[ethereum]: https://www.ethereum.org
+[testrpc]: https://www.npmjs.com/package/ethereumjs-testrpc
+[truffle]: http://truffleframework.com
