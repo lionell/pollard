@@ -89,7 +89,8 @@ $ sudo npm install -g truffle
 
 Navigate to `ethereum` directory and compile contracts
 
-```bash
+```shell
+$ cd ethereum
 $ truffle compile
 ```
 
