@@ -1,4 +1,4 @@
-# Concurrent Rho algorithm
+# Concurrent Rho algorithm + Bonus(Ethereum smart-contract)
 
 [![Build Status](https://travis-ci.org/lionell/pollard.svg?branch=master)](https://travis-ci.org/lionell/pollard)
 
