@@ -2,8 +2,8 @@
 
 [![Build Status](https://travis-ci.org/lionell/pollard.svg?branch=master)](https://travis-ci.org/lionell/pollard)
 
-Implementation of Pollard's Rho algorithm in Go. It also contains
-sequential implementation in Python(see `rho.py`).
+Implementation of Pollard's Rho algorithm in Go. Also check out smart-contract for Ethereum
+written in Solidity(see `ethereum/contracts/Rho.sol`) and sequential Python implementation(see `rho.py`).
 
 ## How it works
 
@@ -73,16 +73,16 @@ Where each benchmark is based on `prod prime[i] for i from Left to Right`.
 
 And last part of benchmark name states for **concurrency limit** used for the test.
 
-## Bonus
+## Running on Ethereum
 
 There is also an implementation of the Pollard's Rho algorithm as a smart-contract for [Ethereum][ethereum].
-You can find it in `rho.sol`. It's able to find a factor of 256bit integer running on the Ethereum Virtual Machine(EVM).
+You can find it in `ethereum/contracts/Rho.sol`. It's able to find a factor of 256bit integer.
 Here is how you can test it using [Truffle Framework][truffle].
 
 ### Install
 
 ```bash
-# npm install -g truffle
+$ sudo npm install -g truffle
 ```
 
 ### Run
@@ -117,6 +117,30 @@ BigNumber { s: 1, e: 0, c: [ 7 ] }
 ```
 
 Result is a `BigNumber` representation of our factor. In our case factor 7 is in field called `c`.
+
+### Computation cost
+
+You can try to predict gas used for the factorization by calling `estimateGas` function
+
+```
+truffle(develop)> rho.run.estimateGas(2, 1, 169)
+28989
+```
+
+And of course when you run it, you can specify gas limit and gas price
+
+```
+truffle(develop)> rho.run(2, 1, 169, {gas: 30000, gasPrice: web3.fromWei(1, 'wei')})
+BigNumber { s: 1, e: 1, c: [ 13 ] }
+```
+
+This is what happens if you give not enough gas
+
+```
+truffle(develop)> rho.run(2, 1, 169, {gas: 28000})
+Error: Error: VM Exception while executing eth_call: out of gas
+...
+```
 
 [pollard-rho-wiki]: https://en.wikipedia.org/wiki/Pollard%27s_rho_algorithm
 [ethereum]: https://www.ethereum.org
