@@ -81,7 +81,7 @@ Here is how you can test it using [Truffle Framework][truffle].
 
 ### Install
 
-```bash
+```shell
 $ sudo npm install -g truffle
 ```
 
@@ -96,7 +96,7 @@ $ truffle compile
 
 Now we can run development blockchain built into Truffle
 
-```bash
+```shell
 $ truffle develop
 ```
 
