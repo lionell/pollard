@@ -11,6 +11,7 @@ import (
 func FactorizeParallel(n *big.Int, j int) *big.Int {
 	// set initial values
 	var (
+		// avoid blocking operations by using buffered channels
 		res    = make(chan *big.Int, j)
 		stop   = make(chan struct{}, j)
 		factor = new(big.Int)

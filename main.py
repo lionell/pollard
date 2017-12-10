@@ -1,9 +1,10 @@
-#!/usr/bin/env python3
-
 from fractions import gcd
 import random
 
+random.seed(17)
+
 def pollard_rho(n):
+    i = 0
     while True:
         c = random.randint(2, n-1)
         f = lambda x: x**2 + c 
@@ -13,7 +14,8 @@ def pollard_rho(n):
             x = f(x) % n 
             y = f(f(y)) % n 
             d = gcd(abs(x - y), n)
-        if d != n: return d
+            i += 1
+        if d != n: return d, i
 
-factor = pollard_rho(int(input()))
-print("Factor {} found.".format(factor))
+factor, cnt = pollard_rho(int(input()))
+print("Factor {} found in {} iterations.".format(factor, cnt))
