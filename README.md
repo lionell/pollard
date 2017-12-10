@@ -87,25 +87,26 @@ $ sudo npm install -g truffle
 
 ### Run
 
-Navigate to `ethereum` directory and compile contracts
+Let's run development blockchain built into Truffle
 
 ```shell
 $ cd ethereum
-$ truffle compile
-```
-
-Now we can run development blockchain built into Truffle
-
-```shell
 $ truffle develop
 ```
 
-This should give you prompt like `truffle(develop)>`.
+This should give you a prompt like `truffle(develop)>`.
 
-Now we need to run migrations to publish our contract
+Now we need to compile and publish our contract
 
 ```
+truffle(develop)> compile
+Compiling ./contracts/Migrations.sol...
+Compiling ./contracts/Rho.sol...
+Writing artifacts to ./build/contracts
+
 truffle(develop)> migrate
+Using network 'develop'.
+...
 ```
 
 After this we can use our smart contract like this
