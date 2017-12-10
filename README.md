@@ -1,4 +1,4 @@
-# Concurrent Rho algorithm + smart-contract
+# Concurrent Rho algorithm + Smart-contract
 
 [![Build Status](https://travis-ci.org/lionell/pollard.svg?branch=master)](https://travis-ci.org/lionell/pollard)
 
